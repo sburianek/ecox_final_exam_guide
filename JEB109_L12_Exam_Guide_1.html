@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>JEB109 — Final Exam Guide (Lecture 12 Revision)</title>
+<script>
+  window.MathJax = {
+    tex: { inlineMath: [['\\(','\\)']], displayMath: [['\\[','\\]']] },
+    svg: { fontCache: 'global' }
+  };
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js" id="MathJax-script" async></script>
+<style>
+  :root{
+    --bg:#f4f1ea;--panel:#fbfaf6;--ink:#1c1a17;--muted:#5d574c;--rule:#d8d0c0;
+    --accent:#7a2e1d;--accent2:#1f4d3f;--gold:#9a7a2e;
+    --tip:#eef3ef;--tip-br:#1f4d3f;--trap:#f7ece8;--trap-br:#7a2e1d;
+    --exam:#f3eede;--exam-br:#9a7a2e;--def:#eceef2;--def-br:#3a4a63;--code:#efeadd;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{margin:0;background:var(--bg);color:var(--ink);
+    font-family:"Iowan Old Style","Palatino Linotype",Palatino,"Book Antiqua",Georgia,serif;
+    line-height:1.62;font-size:17px;}
+  .wrap{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:262px 1fr;gap:0;}
+  nav{position:sticky;top:0;align-self:start;height:100vh;overflow-y:auto;
+    padding:30px 18px 60px;border-right:1px solid var(--rule);
+    background:linear-gradient(180deg,#efe9da,#f4f1ea);}
+  nav h2{font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin:0 0 14px;font-family:Georgia,serif;}
+  nav a{display:block;color:var(--muted);text-decoration:none;font-size:14px;padding:4px 8px;border-radius:5px;border-left:2px solid transparent;}
+  nav a:hover{color:var(--accent);background:#fff;border-left-color:var(--gold);}
+  nav .grp{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);margin:16px 0 4px;padding-left:8px;}
+  main{padding:46px 56px 120px;min-width:0;}
+  header.hero{margin-bottom:38px;border-bottom:3px double var(--rule);padding-bottom:26px;}
+  .kicker{font-size:13px;letter-spacing:.22em;text-transform:uppercase;color:var(--accent);}
+  h1{font-size:40px;line-height:1.08;margin:8px 0 6px;font-weight:700;letter-spacing:-.01em;}
+  .sub{color:var(--muted);font-size:17px;font-style:italic;}
+  .exambar{margin-top:20px;display:flex;flex-wrap:wrap;gap:8px;}
+  .pill{background:var(--panel);border:1px solid var(--rule);border-radius:30px;padding:5px 14px;font-size:13.5px;color:var(--muted);}
+  .pill b{color:var(--accent2);}
+  section{margin:46px 0;scroll-margin-top:20px;}
+  h2.sec{font-size:15px;letter-spacing:.16em;text-transform:uppercase;color:#fff;background:var(--accent2);
+    display:inline-block;padding:6px 16px;border-radius:4px;margin:0 0 18px;}
+  h3{font-size:23px;margin:30px 0 8px;color:var(--accent);border-bottom:1px solid var(--rule);padding-bottom:5px;}
+  h4{font-size:18px;margin:22px 0 6px;color:var(--accent2);}
+  p{margin:10px 0;}
+  .lead{font-size:18px;}
+  ul,ol{margin:10px 0 10px 4px;padding-left:22px;}
+  li{margin:6px 0;}
+  strong{color:#000;}
+  .formula{background:var(--panel);border:1px solid var(--rule);border-left:4px solid var(--gold);
+    border-radius:6px;padding:6px 18px;margin:14px 0;overflow-x:auto;}
+  .box{border-radius:8px;padding:13px 18px 13px 20px;margin:16px 0;border-left:5px solid;}
+  .box .lbl{font-family:Georgia,serif;font-size:12px;letter-spacing:.13em;text-transform:uppercase;font-weight:700;display:block;margin-bottom:4px;}
+  .tip{background:var(--tip);border-color:var(--tip-br);} .tip .lbl{color:var(--tip-br);}
+  .trap{background:var(--trap);border-color:var(--trap-br);} .trap .lbl{color:var(--trap-br);}
+  .exam{background:var(--exam);border-color:var(--exam-br);} .exam .lbl{color:#7d6124;}
+  .def{background:var(--def);border-color:var(--def-br);} .def .lbl{color:var(--def-br);}
+  .worked{background:#fbfaf6;border:1px solid var(--rule);border-top:4px solid var(--accent2);border-radius:8px;padding:8px 22px 16px;margin:20px 0;}
+  .worked .wlbl{font-family:Georgia,serif;font-size:12.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent2);font-weight:700;margin:12px 0 2px;}
+  .step{margin:8px 0;padding-left:14px;border-left:2px solid var(--rule);}
+  code{background:var(--code);padding:1px 6px;border-radius:4px;font-family:"SF Mono",Menlo,Consolas,monospace;font-size:14px;}
+  table{border-collapse:collapse;width:100%;margin:16px 0;font-size:15.5px;background:var(--panel);}
+  th,td{border:1px solid var(--rule);padding:8px 12px;text-align:left;vertical-align:top;}
+  th{background:#ece5d4;color:var(--accent2);font-family:Georgia,serif;font-size:13.5px;letter-spacing:.03em;}
+  tr:nth-child(even) td{background:#f6f3eb;}
+  .map{font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;background:var(--accent);color:#fff;
+    padding:2px 9px;border-radius:20px;display:inline-block;margin-left:6px;vertical-align:middle;}
+  .freq{font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;background:var(--gold);color:#fff;
+    padding:2px 9px;border-radius:20px;display:inline-block;margin-left:6px;vertical-align:middle;}
+  .twocol{display:grid;grid-template-columns:1fr 1fr;gap:18px;}
+  @media(max-width:900px){
+    .wrap{grid-template-columns:1fr;}
+    nav{position:static;height:auto;border-right:none;border-bottom:1px solid var(--rule);}
+    main{padding:30px 22px 80px;} .twocol{grid-template-columns:1fr;} h1{font-size:30px;}
+  }
+  footer{border-top:3px double var(--rule);margin-top:60px;padding-top:18px;color:var(--muted);font-size:14px;font-style:italic;}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<nav>
+  <h2>Contents</h2>
+  <div class="grp">Orientation</div>
+  <a href="#how">How the exam works</a>
+  <a href="#p2">★ Worked Problem 2 (all 10 parts)</a>
+  <div class="grp">Foundations</div>
+  <a href="#s1">1 · Population model &amp; OLS</a>
+  <a href="#s2">2 · Unbiasedness &amp; variance</a>
+  <div class="grp">Inference</div>
+  <a href="#s3">3 · Hypothesis testing</a>
+  <a href="#s4">4 · Goodness of fit</a>
+  <a href="#s5">5 · Variable selection</a>
+  <a href="#s6">6 · Predictions</a>
+  <div class="grp">Special models</div>
+  <a href="#s7">7 · Dummies &amp; LPM</a>
+  <a href="#s8">8 · Heteroskedasticity</a>
+  <a href="#s9">9 · Functional form</a>
+  <div class="grp">Exam topic lists</div>
+  <a href="#p3list">Problem 3 — all 13 topics</a>
+  <a href="#p4list">Problem 4 — all 11 derivations</a>
+  <div class="grp">Reference</div>
+  <a href="#cheat">Formula cheat-sheet</a>
+  <a href="#tables">Critical-value tables</a>
+  <a href="#room">Exam-room protocol</a>
+</nav>
+
+<main>
+<header class="hero">
+  <div class="kicker">Econometrics I · JEB109 · Final Exam Guide</div>
+  <h1>Lecture 12 — Revision of Key Concepts</h1>
+  <div class="sub">Every examinable idea, defined from scratch and expanded with fully worked exam-style calculations. Built to read cold, a few days out.</div>
+  <div class="exambar">
+    <span class="pill">100 min · <b>50 pts</b> · pass &gt; 25</span>
+    <span class="pill">Closed-book · <b>pens only</b>, no calculator</span>
+    <span class="pill">Critical-value tables <b>provided</b></span>
+    <span class="pill">MM 109 · 11:00 · <b>May 26 / Jun 2 / 9 / 29</b></span>
+  </div>
+</header>
+
+<section id="how">
+  <h2 class="sec">How the exam works</h2>
+  <p class="lead">Four problems, fixed in <em>type</em> every term. Two of them (P3, P4) draw from <strong>published topic lists</strong>, so they are largely memorisable — that's where you lock in points.</p>
+  <table>
+    <tr><th>Problem</th><th>Pts</th><th>What it is</th><th>Covered in</th></tr>
+    <tr><td><strong>P1</strong></td><td>5</td><td>5 multiple-choice (≥1 correct each; 0.5 for partial, 0 if any wrong pick). Tests assumptions, BLUE/WLS properties, what inflates Var(β̂), correct notation.</td><td>§1, §2, §4, §8</td></tr>
+    <tr><td><strong>P2</strong></td><td>25</td><td>One big applied regression with ~10 sub-parts: interpret coefficients, t-tests &amp; CIs, quadratics, F-tests, WLS, RESET, OVB. <strong>Half the exam.</strong></td><td>Worked P2 below + §1,3,7,8</td></tr>
+    <tr><td><strong>P3</strong></td><td>10</td><td>Theory <em>description</em> of one concept from a 13-item list.</td><td>P3 topic list (all 13)</td></tr>
+    <tr><td><strong>P4</strong></td><td>10</td><td>Theory <em>derivation</em> from an 11-item list.</td><td>P4 topic list (all 11)</td></tr>
+  </table>
+  <div class="box exam"><span class="lbl">What the specimen reveals about probability</span>
+  On the specimen paper, <strong>P3 was FGLS</strong> and <strong>P4 was the three derivations</strong> (β̂₁ is linear · \(\sum y=\sum\hat y\) · SST = SSE + SSR). Any list item <em>can</em> appear, but the heteroskedasticity family (FGLS, WLS, BP/White) and those three derivations are the demonstrated, highest-probability picks — they carry the <span class="freq">high-yield</span> tag below.</div>
+  <div class="box def"><span class="lbl">Notation used throughout</span>
+  <strong>Hatted</strong> symbols (β̂, ŷ, û) are computed from your sample. <strong>Hatless</strong> (β, u, \(E(y\mid x)\)) are the unknown population truth. \(n\) = sample size, \(k\) = number of slope regressors (excluding the intercept), so <strong>df = \(n-k-1\)</strong>. "ceteris paribus" = holding all other regressors fixed.</div>
+</section>
+
+<section id="p2">
+  <h2 class="sec">★ Worked Problem 2 — the employment model, all ten parts</h2>
+  <p>This is the specimen's actual P2, solved end-to-end with the real appendix critical values. It is the single best rehearsal for exam day: every technique you need appears here once. The estimated model (a <strong>linear probability model</strong> — the dependent variable is binary):</p>
+  <div class="formula">\[ \widehat{\text{employed}}=0.61+0.051\,\text{age}-0.0005\,\text{age}^2+0.015\,\text{workexp}+0.020\,\text{educ}+0.124\,\text{male}+0.062\,\text{white} \]</div>
+  <p style="text-align:center;color:var(--muted);font-size:15px">standard errors: (3.44) (0.015) (0.0001) (0.0024) (0.039) (0.031) (0.009)<br>
+  \(n=307\), \(R^2=0.60\), \(\bar R^2=0.592\), \(\text{SSR}=15\). So \(k=6\), <strong>df \(=307-6-1=300\)</strong> (use the table's ∞ row — the closest available).</p>
+
+  <div class="worked">
+    <p class="wlbl">Part 1 (3 pts) — interpret β̂(male), significance, 95% CI</p>
+    <div class="step"><strong>Interpretation.</strong> Since this is an LPM, the coefficient is a change in a <em>probability</em>, in percentage points. Being male (vs the female base group) is associated with a <strong>12.4 percentage-point higher probability of employment</strong>, holding age, experience, education and ethnicity fixed.</div>
+    <div class="step"><strong>Significance (t test).</strong> \(t=\dfrac{\hat\beta}{se}=\dfrac{0.124}{0.031}=4.0\). Two-sided 5% critical value (df ≈ ∞) is \(1.96\). Since \(4.0>1.96\), <strong>significant at 5%</strong> (indeed at 1%, where the crit is 2.576).</div>
+    <div class="step"><strong>95% CI.</strong> \(\hat\beta\pm1.96\,se=0.124\pm1.96(0.031)=0.124\pm0.061=[\,0.063,\ 0.185\,]\). Excludes 0, consistent with the test.</div>
+  </div>
+
+  <div class="worked">
+    <p class="wlbl">Part 2 (3 pts) — does being white raise P(employed) by <em>more than</em> 5 pp? (one-sided, nonzero null)</p>
+    <div class="step"><strong>Key idea.</strong> The null value is <strong>0.05, not 0</strong> — you subtract it in the numerator. This is the classic trap.</div>
+    <div class="step"><strong>Hypotheses.</strong> \(H_0:\beta_{white}=0.05\) vs \(H_1:\beta_{white}>0.05\) (one-sided).</div>
+    <div class="step"><strong>Statistic.</strong> \(t=\dfrac{\hat\beta-0.05}{se}=\dfrac{0.062-0.05}{0.009}=\dfrac{0.012}{0.009}\approx1.33\), distributed \(t_{300}\).</div>
+    <div class="step"><strong>Critical value.</strong> One-sided, 10% → use the 0.10 column, df ≈ ∞ → \(c=1.282\).</div>
+    <div class="step"><strong>Conclusion.</strong> \(1.33>1.282\) ⇒ <strong>reject \(H_0\)</strong> at 10%: the white effect is statistically greater than 5 pp — but only just (it would <em>not</em> survive a 5% test, where \(c=1.645\)). Economically, ~6 pp is a modest employment gap.</div>
+  </div>
+
+  <div class="worked">
+    <p class="wlbl">Part 3 (3 pts) — total effect of age, effect at age 30, turning point</p>
+    <div class="step"><strong>Key idea.</strong> Age enters as a <em>quadratic</em> (age and age²), so its effect is not constant — it changes with the level of age. Differentiate.</div>
+    <div class="step"><strong>Marginal effect.</strong> \(\dfrac{\partial\widehat{\text{employed}}}{\partial\,\text{age}}=\beta_1+2\beta_2\,\text{age}=0.051+2(-0.0005)\,\text{age}=0.051-0.001\,\text{age}\).</div>
+    <div class="step"><strong>At age 30.</strong> \(0.051-0.001(30)=0.021\) → one more year of age raises P(employed) by about <strong>2.1 pp</strong> at age 30. Positive but diminishing — as expected, employment rises with age early on.</div>
+    <div class="step"><strong>Turning point.</strong> \(\text{age}^*=-\dfrac{\beta_1}{2\beta_2}=-\dfrac{0.051}{2(-0.0005)}=51\) years. Since \(\beta_2<0\) this is a <strong>maximum</strong>: P(employed) rises until ~51, then falls. 51 is well within the adult age range, so the curvature is practically relevant.</div>
+  </div>
+
+  <div class="worked">
+    <p class="wlbl">Part 4 (2 pts) — why is education insignificant? a better representation?</p>
+    <div class="step"><strong>Reasoning.</strong> Years of education may have a <em>non-linear</em> or <em>threshold</em> effect on employment — what matters is completing a degree, not each marginal year. A linear "years" term averages this away and can look insignificant.</div>
+    <div class="step"><strong>Better representation.</strong> Replace the continuous years variable with <strong>education-level dummies</strong> (e.g. secondary / bachelor / master), capturing credential effects; or add a quadratic in education; or interact it with another variable. Any captures non-linearity the linear term misses.</div>
+  </div>
+
+  <div class="worked">
+    <p class="wlbl">Part 5 (1 pt) — interpret R²</p>
+    <div class="step">\(R^2=0.60\): the model explains <strong>60% of the variation</strong> in the employment outcome across individuals. The remaining 40% is unexplained (in the residual). A respectable fit for cross-sectional micro-data.</div>
+  </div>
+
+  <div class="worked">
+    <p class="wlbl">Part 6 (2 pts) — overall significance F (R² form)</p>
+    <div class="step"><strong>Key idea.</strong> Tests \(H_0\): all slopes \(=0\) jointly. The hint says use the R² form, which needs only \(R^2\), \(k\), and df.</div>
+    <div class="step">\(F=\dfrac{R^2/k}{(1-R^2)/(n-k-1)}=\dfrac{0.60/6}{0.40/300}=\dfrac{0.10}{0.001333}=75.0\), distributed \(F_{6,300}\).</div>
+    <div class="step"><strong>Conclusion.</strong> The 1% critical value (df ≈ 6, denom ∞) is well under 3; \(75\gg3\) ⇒ <strong>reject</strong> — the regression is jointly highly significant.</div>
+  </div>
+
+  <div class="worked">
+    <p class="wlbl">Part 7 (3 pts) — joint test H₀: β₃ = 0 and β₄ = 0 (SSR form)</p>
+    <div class="step"><strong>Key idea.</strong> Drop age² and workexp, re-estimate (the "restricted" model), and compare residual fit. Given: \(\text{SSR}_U=15\) (full), \(\text{SSR}_R=16\) (restricted), \(q=2\) restrictions.</div>
+    <div class="step"><strong>Hypotheses.</strong> \(H_0:\beta_3=0\ \text{and}\ \beta_4=0\) vs \(H_1:\) at least one \(\neq0\).</div>
+    <div class="step"><strong>Statistic.</strong> \(F=\dfrac{(\text{SSR}_R-\text{SSR}_U)/q}{\text{SSR}_U/(n-k-1)}=\dfrac{(16-15)/2}{15/300}=\dfrac{0.5}{0.05}=10.0\), distributed \(F_{2,300}\).</div>
+    <div class="step"><strong>Critical value &amp; conclusion.</strong> 1% crit, \(F_{2,120}\approx4.79\) (closest table row); \(10>4.79\) ⇒ <strong>reject \(H_0\)</strong>: the two variables are jointly significant at 1%.</div>
+  </div>
+
+  <div class="worked">
+    <p class="wlbl">Part 8 (2 pts) — the LPM's known heteroskedasticity &amp; the WLS fix</p>
+    <div class="step"><strong>Key idea.</strong> In an LPM the error variance is <em>not</em> a free unknown — it's pinned down by the fitted probability. For a Bernoulli outcome, \(\mathrm{Var}(u\mid X)=p(X)\,[1-p(X)]\), and \(p(X)=\widehat{\text{employed}}=\hat y\).</div>
+    <div class="step"><strong>The form, specifically.</strong> \(\mathrm{Var}(u_i\mid X)=\hat y_i(1-\hat y_i)\), where \(\hat y_i\) is each observation's fitted probability.</div>
+    <div class="step"><strong>WLS procedure.</strong> Weight each observation by \(1/\sqrt{\hat y_i(1-\hat y_i)}\) — i.e. divide the entire equation (y and every regressor including the constant) by \(\sqrt{\hat y_i(1-\hat y_i)}\), then run OLS on the transformed data. (If any \(\hat y_i\notin(0,1)\), that weight is undefined — drop or adjust those observations.)</div>
+  </div>
+
+  <div class="worked">
+    <p class="wlbl">Part 9 (3 pts) — RESET test, p-value 0.352</p>
+    <div class="step"><strong>Idea.</strong> RESET checks for <em>functional-form misspecification</em>: it adds powers of the fitted values (\(\hat y^2,\hat y^3\)) to the model and jointly tests whether they matter. If they do, the original linear form missed some curvature.</div>
+    <div class="step"><strong>Interpretation here.</strong> p = 0.352 is large (&gt; any usual α), so we <strong>fail to reject</strong> the null of correct specification — <em>no evidence of misspecification</em>. The functional form is adequate.</div>
+    <div class="step"><strong>If it had flagged misspecification</strong> (small p), you'd try a more flexible form: add quadratic/interaction terms, or use logs of the continuous regressors.</div>
+  </div>
+
+  <div class="worked">
+    <p class="wlbl">Part 10 (3 pts) — omitted variables &amp; bias-sign analysis</p>
+    <div class="step"><strong>Key idea.</strong> A variable left in the error biases OLS only if it is BOTH a real determinant of employment AND correlated with an included regressor. Sign: bias \(=\operatorname{sign}(\delta)\times\operatorname{sign}(\text{corr})\), where \(\delta\) is the omitted variable's true effect.</div>
+    <div class="step"><strong>Candidate 1 — health status.</strong> Better health raises employment (\(\delta>0\)) and is positively correlated with age up to a point / with education → omitting it biases those coefficients <strong>upward</strong> (same signs).</div>
+    <div class="step"><strong>Candidate 2 — motivation / ability.</strong> Raises employment (\(\delta>0\)) and is positively correlated with education → the education coefficient is biased <strong>upward</strong>; part of what looks like an "education effect" is really motivation.</div>
+    <div class="step">State, for each: its effect sign, its correlation sign with a named regressor, and therefore the bias direction. That structure is what earns the marks.</div>
+  </div>
+</section>
+
+<section id="s1">
+  <h2 class="sec">1 · Population model &amp; OLS estimators</h2>
+
+  <h3>The model, and the words for its pieces <span class="map">P1 · P4</span></h3>
+  <p>The <strong>population model</strong> says the truth about how y is generated:</p>
+  <div class="formula">\[ y=\beta_0+\beta_1x_1+\dots+\beta_kx_k+u,\qquad E(u)=0. \]</div>
+  <div class="box def"><span class="lbl">Definitions — the four object types</span>
+  <strong>Parameter</strong> \(\beta_j\): the true, fixed, unknown number. · <strong>Estimator</strong> \(\hat\beta_j\): the <em>formula</em> that turns a sample into a guess — a random variable, since it depends on which sample you drew. · <strong>Estimate</strong>: the actual number that formula spits out for your data. · <strong>Error</strong> \(u\): the unobservable population disturbance, \(y-E(y\mid x)\). · <strong>Residual</strong> \(\hat u_i=y_i-\hat y_i\): its observable sample counterpart.</div>
+  <table>
+    <tr><th>Population (true, unknown, hatless)</th><th>Sample (estimated, hatted)</th></tr>
+    <tr><td>parameter \(\beta_j\)</td><td>estimate \(\hat\beta_j\)</td></tr>
+    <tr><td>expected value \(E(y\mid x)\)</td><td>fitted value \(\hat y_i\)</td></tr>
+    <tr><td>PRF (population regression function) \(E(y\mid x)=\beta_0+\beta_1x_1+\dots\)</td><td>SRF (sample regression function / OLS line) \(\hat y=\hat\beta_0+\hat\beta_1x_1+\dots\)</td></tr>
+    <tr><td>error \(u\)</td><td>residual \(\hat u\)</td></tr>
+  </table>
+  <p>The PRF is fixed but unknown; the SRF is your estimate of it and <strong>changes from sample to sample</strong>. That sample-to-sample variability is precisely what gives \(\hat\beta_j\) a sampling distribution (and hence a standard error).</p>
+
+  <h3>The OLS estimators — what they are <span class="map">P4</span></h3>
+  <p><strong>OLS = Ordinary Least Squares:</strong> the line that minimises the sum of squared residuals. For simple regression (one x):</p>
+  <div class="formula">\[ \hat\beta_1=\frac{\sum_{i=1}^n (x_i-\bar x)(y_i-\bar y)}{\sum_{i=1}^n (x_i-\bar x)^2},\qquad \hat\beta_0=\bar y-\hat\beta_1\bar x. \]</div>
+  <p>Read \(\hat\beta_1\) as "sample covariance of x and y, divided by sample variance of x." For multiple regression, stack everything into matrices (X = data, y = outcomes):</p>
+  <div class="formula">\[ \hat{\boldsymbol\beta}=(X^{\mathsf T}X)^{-1}X^{\mathsf T}y. \]</div>
+
+  <h3>Sums of squares — the building blocks of fit <span class="map">P4</span></h3>
+  <div class="box def"><span class="lbl">Definitions</span>
+  <strong>SST</strong> (total) \(=\sum(y_i-\bar y)^2\): total variation in y to be explained. · <strong>SSE</strong> (explained) \(=\sum(\hat y_i-\bar y)^2\): variation the model captures. · <strong>SSR</strong> (residual) \(=\sum\hat u_i^2\): variation left over. They satisfy \(\text{SST}=\text{SSE}+\text{SSR}\).</div>
+  <div class="box trap"><span class="lbl">Notation trap</span>Some books swap the names SSE/SSR. Here <strong>SSE = Explained, SSR = Residual</strong> (\(\sum\hat u^2\)) — Wooldridge's convention. Use it consistently.</div>
+
+  <h3>Interpreting coefficients <span class="map">P2</span></h3>
+  <ul>
+    <li><strong>Intercept \(\hat\beta_0\):</strong> predicted y when every \(x_j=0\) (often not meaningful on its own, but needed for the line).</li>
+    <li><strong>Slope \(\hat\beta_j=\dfrac{\Delta\hat y}{\Delta x_j}\):</strong> the <em>partial effect</em> — the change in predicted y for a one-unit rise in \(x_j\), <em>holding all other regressors fixed</em>.</li>
+  </ul>
+  <h4>Logarithmic specifications (Problem 4, item 10 — and everywhere in P2)</h4>
+  <p><strong>Why logs?</strong> They convert absolute changes into percentage changes, giving elasticities economists care about.</p>
+  <table>
+    <tr><th>Model</th><th>Dep.</th><th>Indep.</th><th>Meaning of \(\beta_1\)</th></tr>
+    <tr><td>Level–level</td><td>\(y\)</td><td>\(x\)</td><td>\(\Delta y=\beta_1\Delta x\): units of y per unit of x</td></tr>
+    <tr><td>Level–log</td><td>\(y\)</td><td>\(\log x\)</td><td>\(\Delta y=(\beta_1/100)\%\Delta x\): units of y per 1% rise in x</td></tr>
+    <tr><td>Log–level</td><td>\(\log y\)</td><td>\(x\)</td><td>\(\%\Delta y=(100\beta_1)\Delta x\): % change in y per unit of x (semi-elasticity)</td></tr>
+    <tr><td>Log–log</td><td>\(\log y\)</td><td>\(\log x\)</td><td>\(\%\Delta y=\beta_1\%\Delta x\): elasticity</td></tr>
+  </table>
+  <div class="box tip"><span class="lbl">Memory rule</span>Log on the <em>dependent</em> side → ×100 to read y's % change. Log on the <em>independent</em> side → ÷100. Both logged → \(\beta_1\) <em>is</em> the elasticity. <br><strong>Precision note:</strong> \(100\beta_1\) is an approximation (good for small \(\beta_1\)); exact %Δy from a one-unit Δx in log-level is \(100(e^{\beta_1}-1)\). For \(\beta_1=0.5\): 50% approx vs 64.9% exact — flag this for marks.</div>
+</section>
+
+<section id="s2">
+  <h2 class="sec">2 · Unbiasedness, consistency &amp; variance</h2>
+
+  <h3>The MLR assumptions, and what each one buys <span class="map">P1 · P3</span></h3>
+  <div class="box def"><span class="lbl">Definitions of the key properties</span>
+  <strong>Unbiased:</strong> \(E(\hat\beta_j)=\beta_j\) — right on average across samples. · <strong>Consistent:</strong> \(\hat\beta_j\to\beta_j\) as \(n\to\infty\). · <strong>Efficient / BLUE:</strong> smallest variance among all linear unbiased estimators. · <strong>BUE:</strong> smallest variance among <em>all</em> unbiased estimators (a stronger claim).</div>
+  <table>
+    <tr><th>#</th><th>Assumption (plain words)</th><th>Buys you</th></tr>
+    <tr><td>MLR.1</td><td>Model is linear in the parameters</td><td rowspan="4">MLR.1–4 ⇒ <strong>unbiased &amp; consistent</strong></td></tr>
+    <tr><td>MLR.2</td><td>Data are a random sample</td></tr>
+    <tr><td>MLR.3</td><td>No perfect collinearity (no regressor is an exact linear combo of others; X has full rank)</td></tr>
+    <tr><td>MLR.4</td><td>Zero conditional mean \(E(u\mid x)=0\): the error is unrelated to the regressors on average</td></tr>
+    <tr><td>MLR.5</td><td>Homoskedasticity: \(\mathrm{Var}(u\mid x)=\sigma^2\), constant for all x</td><td>+MLR.5 ⇒ <strong>BLUE</strong> (Gauss–Markov)</td></tr>
+    <tr><td>MLR.6</td><td>Normality: \(u\sim N(0,\sigma^2)\)</td><td>+MLR.6 ⇒ <strong>BUE</strong> &amp; exact small-sample t, F</td></tr>
+  </table>
+  <div class="box tip"><span class="lbl">The ladder — recite it</span>1–4 → unbiased/consistent · +5 → BLUE · +6 → BUE &amp; exact t/F. <strong>MLR.4</strong> is broken by omitted variables and wrong functional form (→ bias). <strong>MLR.5</strong> is broken by heteroskedasticity (→ inference invalid, but no bias).</div>
+  <div class="box exam"><span class="lbl">Consistency vs unbiasedness (subtle, examinable)</span>For mere <em>consistency</em>, a weaker MLR.4′ suffices: zero mean AND zero correlation \(\mathrm{Cov}(x,u)=0\). Full mean-independence \(E(u\mid x)=0\) is what you need for <em>unbiasedness</em>.</div>
+
+  <h3>Variance of OLS — and what makes it big <span class="map">P1 · P4</span></h3>
+  <p><strong>Why we care:</strong> the variance of \(\hat\beta_j\) controls how precise your estimate is — and its square root is the standard error that drives every t-test.</p>
+  <div class="formula">\[ \mathrm{Var}(\hat\beta_j)=\frac{\sigma^2}{\text{SST}_j\,(1-R_j^2)}. \]</div>
+  <div class="box def"><span class="lbl">What each symbol means</span>
+  \(\sigma^2\) = variance of the error (noise in y). · \(\text{SST}_j=\sum(x_{ij}-\bar x_j)^2\) = how much the regressor \(x_j\) varies in your sample. · \(R_j^2\) = the R² from regressing \(x_j\) on all <em>other</em> regressors — a measure of how collinear \(x_j\) is with them.</div>
+  <table>
+    <tr><th>Var(β̂ⱼ) goes UP when…</th><th>…and DOWN when…</th></tr>
+    <tr><td>more noise: \(\sigma^2\) ↑</td><td>more data: \(n\) ↑</td></tr>
+    <tr><td>\(x_j\) barely varies: \(\text{SST}_j\) ↓</td><td>\(x_j\) varies a lot</td></tr>
+    <tr><td>multicollinearity: \(R_j^2\to1\) (VIF \(=\frac{1}{1-R_j^2}\) ↑)</td><td>regressors nearly uncorrelated</td></tr>
+  </table>
+  <div class="box exam"><span class="lbl">P1 MCQ (specimen Q4)</span>"What makes Var(β̂ⱼ) increase?" → increased error variance ✓, decreased sample variation in \(x_j\) ✓. Additional observations <em>decrease</em> it ✗.</div>
+
+  <h4>The standard error — and why it's given, not computed</h4>
+  <div class="formula">\[ \hat\sigma^2=\frac{\text{SSR}}{n-k-1},\qquad se(\hat\beta_j)=\frac{\hat\sigma}{\sqrt{\text{SST}_j(1-R_j^2)}}. \]</div>
+  <p>\(\hat\sigma\) is the <em>standard error of the regression</em> (typical residual size). The \(n-k-1\) divisor makes \(\hat\sigma^2\) unbiased. To get \(se(\hat\beta_j)\) by hand you'd need SSR <em>and</em> the auxiliary \(R_j^2\) — impossible without software, so the exam <strong>gives you se</strong> (the parenthesised number). Your job: \(t=\hat\beta_j/se\), or back out a missing piece via \(se=\hat\beta_j/t\).</p>
+
+  <h3>Gauss–Markov &amp; asymptotic normality <span class="map">P1 · P3</span></h3>
+  <p><strong>Gauss–Markov theorem:</strong> under MLR.1–5, OLS is <strong>BLUE</strong>. Add MLR.6 and it's <strong>BUE</strong>. <strong>Asymptotic normality:</strong> even without MLR.6, for large n the standardised estimator \(\dfrac{\hat\beta_j-\beta_j}{se(\hat\beta_j)}\) is approximately \(N(0,1)\) — which is why \(t\) and the normal coincide once df &gt; 120.</p>
+</section>
+
+<section id="s3">
+  <h2 class="sec">3 · Hypothesis testing</h2>
+  <p class="lead">The engine of Problem 2. The worked P2 above shows these in action; here's the why behind each.</p>
+
+  <h3>The t test — single coefficient <span class="map">P2</span></h3>
+  <div class="box def"><span class="lbl">What it does</span>Asks whether a coefficient is distinguishable from a hypothesised value \(a_j\) (usually 0) given sampling noise. The "t ratio" \(\hat\beta_j/se\) is the special case \(a_j=0\).</div>
+  <div class="formula">\[ t=\frac{\hat\beta_j-a_j}{se(\hat\beta_j)}\ \sim\ t_{\,n-k-1}. \]</div>
+  <table>
+    <tr><th>If \(H_1\) is…</th><th>use the … table column</th><th>reject \(H_0\) when</th></tr>
+    <tr><td>\(\beta_j\neq a_j\) (two-sided)</td><td>\(\alpha/2\) (split the α between tails)</td><td>\(|t|>c\)</td></tr>
+    <tr><td>\(\beta_j>a_j\)</td><td>\(\alpha\) (right tail)</td><td>\(t>c\)</td></tr>
+    <tr><td>\(\beta_j<a_j\)</td><td>\(\alpha\) (left tail)</td><td>\(t<-c\)</td></tr>
+  </table>
+  <div class="box trap"><span class="lbl">Most common point-loss</span>Using the \(\alpha\) column for a two-sided test (or \(\alpha/2\) for one-sided). Two-sided 5% → 0.025 column → 1.96. One-sided 5% → 0.05 column → 1.645.</div>
+
+  <h3>Statistical vs economic significance <span class="map">P2</span></h3>
+  <div class="box tip"><span class="lbl">Two different questions — answer both</span>
+  <strong>Statistical significance</strong> = is \(\hat\beta\) large <em>relative to its se</em>? (the t-test; heavily driven by sample size — huge n can make a trivial effect "significant"). <strong>Economic significance</strong> = is the magnitude large <em>in real-world units</em>? Plug a realistic \(\Delta x\), read off the implied \(\Delta y\), and judge whether anyone would care. A coefficient can have either property without the other — the seminar's <em>ros</em> example was economically negligible (1.2% for a 50-point move) even setting significance aside.</div>
+
+  <h3>Confidence interval <span class="map">P2</span></h3>
+  <div class="formula">\[ \hat\beta_j\ \pm\ t_{\,n-k-1,\,1-\alpha/2}\cdot se(\hat\beta_j). \]</div>
+  <p>The range of values for \(\beta_j\) consistent with the data at confidence \(1-\alpha\). <strong>Shortcut:</strong> a two-sided test rejects exactly when the null value falls <em>outside</em> the CI. For df &gt; 120, the "2-sigma rule" (±1.96 ≈ ±2) gives a quick 5% read.</p>
+
+  <h3>F test — joint hypotheses <span class="map">P2 · P3 · P4</span></h3>
+  <div class="box def"><span class="lbl">What it does</span>Tests several restrictions at once (e.g. "these two coefficients are both zero"). Compares a <em>restricted</em> model (restrictions imposed) with the <em>unrestricted</em> one — if imposing them barely raises SSR, the restrictions are plausible.</div>
+  <div class="formula">\[ F=\frac{(\text{SSR}_R-\text{SSR}_U)/q}{\text{SSR}_U/(n-k-1)}=\frac{(R_U^2-R_R^2)/q}{(1-R_U^2)/(n-k-1)}\ \sim\ F_{\,q,\;n-k-1}, \]</div>
+  <p>\(q\) = number of restrictions, R = restricted, U = unrestricted. The two forms are algebraically identical — pick whichever the data give you (SSRs or R²s). Worked twice in P2 above (overall F = 75 via R²; joint F = 10 via SSR).</p>
+
+  <h3>LM test (Lagrange multiplier) <span class="map">P3</span></h3>
+  <div class="box def"><span class="lbl">What it does</span>An alternative to the F test for <em>exclusion</em> restrictions, using only the restricted model. Intuition: if the excluded variables truly don't matter, the restricted residuals shouldn't be predictable from them.</div>
+  <ol>
+    <li>Same \(H_0,H_1\) as the F test.</li>
+    <li>Estimate the <strong>restricted</strong> model; save residuals \(\tilde u\).</li>
+    <li>Auxiliary regression: regress \(\tilde u\) on <em>all</em> regressors; get \(R^2_{\tilde u}\).</li>
+    <li>\(LM=n\,R^2_{\tilde u}\ \overset{a}{\sim}\ \chi^2_q\). Reject if \(LM>c\).</li>
+  </ol>
+  <div class="box trap"><span class="lbl">Distribution trap (specimen P1 Q1)</span>With MLR.1–4 holding but 5–6 violated, LM is <strong>asymptotically χ²</strong> — not exact, not F.</div>
+  <div class="box exam"><span class="lbl">"Fail to reject" ≠ "accept"</span>Not rejecting \(H_0\) = insufficient evidence against it, NOT proof it's true (the effect may be real but imprecisely estimated). Always write "fail to reject" / "not significant."</div>
+</section>
+
+<section id="s4">
+  <h2 class="sec">4 · Goodness of fit</h2>
+  <div class="box def"><span class="lbl">Definitions</span><strong>\(R^2\)</strong> = share of the variation in y explained by the model. <strong>\(\bar R^2\)</strong> (adjusted) = the same, but penalised for the number of regressors, so adding junk variables can lower it.</div>
+  <div class="formula">\[ R^2=\frac{\text{SSE}}{\text{SST}}=1-\frac{\text{SSR}}{\text{SST}},\qquad \bar R^2=1-\frac{\text{SSR}/(n-k-1)}{\text{SST}/(n-1)}. \]</div>
+  <div class="twocol">
+    <div><h4>\(R^2\) facts <span class="map">P1</span></h4><ul>
+      <li>In \([0,1]\).</li>
+      <li><strong>Never decreases</strong> when a regressor is added.</li>
+      <li>Comparable only across models with the same number of regressors.</li>
+    </ul></div>
+    <div><h4>\(\bar R^2\) facts</h4><ul>
+      <li><strong>Can rise or fall</strong>; can go negative.</li>
+      <li>Use it to compare specifications (log vs quadratic) and to catch over-controlling.</li>
+      <li>Asymptotically equals \(R^2\).</li>
+    </ul></div>
+  </div>
+  <div class="box trap"><span class="lbl">MCQ traps (specimen Q2)</span>"\(\bar R^2\) always decreases with an added variable" — false. "always &gt; 0" — false (can be negative). "based on the number of regressors" — true. "always lower than \(R^2\)" — true.</div>
+</section>
+
+<section id="s5">
+  <h2 class="sec">5 · Selecting explanatory variables <span class="freq">P3 topic 5</span></h2>
+  <p>Four criteria for "does this variable belong?" — really the bias–variance trade-off in disguise.</p>
+  <ol>
+    <li><strong>Theory.</strong> Is inclusion theoretically justified? Purpose matters: prediction vs testing a specific relationship.</li>
+    <li><strong>OVB reduction.</strong> Do <em>other</em> coefficients shift a lot when this variable is added? Big shifts mean it was confounding them — keep it to avoid omitted-variable bias. (The CEO-salary table: the <em>sales</em> elasticity moved 0.224 → 0.158 → 0.188 as controls entered.)</li>
+    <li><strong>Adjusted \(\bar R^2\).</strong> Does fit improve <em>enough</em> to justify the added parameter?</li>
+    <li><strong>t and F tests.</strong> Significant in the expected direction? F handles dropping several variables at once.</li>
+  </ol>
+  <div class="box trap"><span class="lbl">More variables is NOT always better</span><strong>Bad controls</strong> (variables on the causal path between x and y) bias your estimate if included. <strong>Irrelevant variables</strong> don't bias OLS but inflate \(\mathrm{Var}(\hat\beta_j)\) — you lose precision. Include only genuine determinants of y that are plausibly correlated with your regressor of interest.</div>
+  <div class="box exam"><span class="lbl">OVB sign rule (used in P2 Part 10)</span>bias \(=\operatorname{sign}(\delta)\times\operatorname{sign}(\mathrm{corr}(x_{\text{omit}},x_{\text{incl}}))\); same signs → upward, opposite → downward. Formally \(\operatorname{plim}\hat\beta_1=\beta_1+\frac{\mathrm{Cov}(x,u)}{\mathrm{Var}(x)}\), which doesn't vanish as \(n\to\infty\) ⇒ inconsistent.</div>
+</section>
+
+<section id="s6">
+  <h2 class="sec">6 · Predictions <span class="map">P4 topic 11</span></h2>
+  <p>Predicting \(\hat y_{n+1}\) just means plugging new \(x\) values into the SRF. The exam point is <em>which uncertainty</em> you report.</p>
+  <table>
+    <tr><th>Interval</th><th>Captures</th><th>Width</th></tr>
+    <tr><td>CI for the <strong>mean</strong> prediction \(E(y\mid x_0)\)</td><td>only sampling variance of \(\hat\beta\)</td><td>narrower</td></tr>
+    <tr><td><strong>Prediction interval</strong> for a specific unit \(y_0\)</td><td>sampling variance of \(\hat\beta\) <em>plus</em> the individual error variance \(\sigma^2\)</td><td>wider</td></tr>
+  </table>
+  <div class="box tip"><span class="lbl">Why the prediction interval is wider</span>Even if you knew the true line exactly, an individual firm/person still scatters around it by its own \(u\). Predicting <em>one unit</em> adds \(\sigma^2\) on top of the uncertainty in \(\hat\beta\). The error structure: \(\mathrm{Var}(\hat e_0)=\mathrm{Var}(\hat y_0)+\sigma^2\) — the extra \(\sigma^2\) is the whole difference.</div>
+</section>
+
+<section id="s7">
+  <h2 class="sec">7 · Qualitative variables, dummies &amp; the LPM</h2>
+
+  <h3>Dummy variables <span class="map">P2 · P3 topic 6</span></h3>
+  <div class="box def"><span class="lbl">Definition</span>A <strong>dummy</strong> is a 0/1 indicator for a category (e.g. male = 1). Technically it behaves like any regressor.</div>
+  <ul>
+    <li><strong>Base group</strong> = the omitted category, absorbed into the intercept. Each dummy's coefficient is the gap vs that base.</li>
+    <li>Dummies shift the <em>intercept</em>; with interaction terms, they also change <em>slopes</em>.</li>
+    <li><strong>Dummy-variable trap:</strong> never include a dummy for <em>every</em> category plus an intercept — that's perfect collinearity (violates MLR.3). Always drop one category.</li>
+  </ul>
+  <h4>Chow test <span class="freq">P3 topic 6</span></h4>
+  <div class="box def"><span class="lbl">What it does</span>Tests whether the <em>whole</em> set of coefficients is the same across two groups (e.g. men vs women) — i.e. parameter stability. It's an F test comparing a pooled (restricted) regression against separate group regressions (unrestricted).</div>
+  <div class="formula">\[ F=\frac{[\text{SSR}_{pooled}-(\text{SSR}_1+\text{SSR}_2)]/(k+1)}{(\text{SSR}_1+\text{SSR}_2)/(n-2(k+1))}\ \sim\ F_{\,k+1,\ n-2(k+1)}. \]</div>
+  <p>\(\text{SSR}_1,\text{SSR}_2\) are from each group separately; \(k+1\) restrictions (all coefficients incl. intercept). Reject ⇒ the groups have different coefficient structures. (Equivalently, run one regression with a full set of group-dummy interactions and F-test them jointly.)</p>
+
+  <h3>Linear probability model (LPM) <span class="freq">P3 topic 7</span></h3>
+  <div class="box def"><span class="lbl">Definition</span>An LPM is just OLS with a <strong>binary</strong> dependent variable \(y\in\{0,1\}\). Because \(y\) is Bernoulli, its conditional mean <em>is</em> a probability:</div>
+  <div class="formula">\[ E(y\mid X)=P(y=1\mid X)=\beta_0+\beta_1x_1+\dots+\beta_kx_k. \]</div>
+  <p>So a coefficient is a change in that probability: \(\Delta P(y=1)=\beta_j\,\Delta x_j\) — read as <strong>percentage points</strong> (as in the employment model above).</p>
+  <div class="box trap"><span class="lbl">Four shortcomings — memorise (favourite P3 entry)</span>
+  (1) fitted probabilities can fall <strong>outside [0,1]</strong>; (2) the marginal effect of \(\Delta x_j\) is <strong>constant</strong>, often unrealistic; (3) the error is <strong>inherently heteroskedastic</strong>; (4) the error is <strong>not normal</strong>. (3)+(4) ⇒ usual t/F invalid — yet OLS stays unbiased &amp; consistent under MLR.1–4. <strong>Advantages:</strong> simple, coefficients directly interpretable as probability effects.</div>
+  <div class="box exam"><span class="lbl">The known-variance fix (P2 Part 8)</span>LPM variance is known: \(\mathrm{Var}(u\mid x)=p(x)[1-p(x)]=\hat y(1-\hat y)\). So WLS weights are \(1/\sqrt{\hat y(1-\hat y)}\) — divide the equation through and run OLS.</div>
+</section>
+
+<section id="s8">
+  <h2 class="sec">8 · Heteroskedasticity <span class="freq">high-yield P3 family</span></h2>
+  <div class="box def"><span class="lbl">Definition</span><strong>Homoskedasticity</strong> (MLR.5): the error has constant variance for all x. <strong>Heteroskedasticity</strong> = that fails — the spread of \(u\) depends on x.</div>
+
+  <h3>Consequences for OLS <span class="map">P1 · P3 topic 8</span></h3>
+  <ol>
+    <li><strong>OLS stays unbiased &amp; consistent</strong> (MLR.1–4 untouched): the coefficients, \(R^2\), \(\bar R^2\) are all fine.</li>
+    <li>The <em>true</em> variance of \(\hat\beta\) rises ⇒ OLS is <strong>no longer BLUE</strong>, not even asymptotically efficient.</li>
+    <li><strong>The estimated \(\mathrm{Var}(\hat\beta_j)\) is biased (usually downward)</strong> ⇒ reported se too small ⇒ <strong>t, CI, F, LM all invalid — even in large samples.</strong></li>
+  </ol>
+  <div class="box tip"><span class="lbl">One-line takeaway</span>Heteroskedasticity doesn't bias the <em>coefficients</em> — it breaks the <em>standard errors</em>. Fix the inference, not the point estimates.</div>
+
+  <h3>Remedy 1 — White robust standard errors <span class="map">P3 topic 8</span></h3>
+  <p>Recompute se to be valid under heteroskedasticity of any unknown form. <strong>Caveat:</strong> only <em>asymptotically</em> valid (large n), and they say nothing about the bias/consistency/efficiency of \(\hat\beta\) itself — they just repair the standard errors.</p>
+
+  <h3>Remedy 2 — tests for heteroskedasticity <span class="map">P3 topic 9</span></h3>
+  <div class="box def"><span class="lbl">Shared idea</span>If the error variance depends on the regressors, then the <em>squared residuals</em> \(\hat u^2\) should be predictable from them. So regress \(\hat u^2\) on regressors and test joint significance.</div>
+  <div class="formula">\[ \textbf{Breusch–Pagan: } \hat u^2=\delta_0+\delta_1x_1+\dots+\delta_kx_k+v. \]</div>
+  <div class="formula">\[ \textbf{White: } \hat u^2=\delta_0+\delta_1x_1+\delta_2x_2+\delta_3x_1^2+\delta_4x_2^2+\delta_5x_1x_2+v\quad\text{or}\quad \hat u^2=\delta_0+\delta_1\hat y+\delta_2\hat y^2+v. \]</div>
+  <p>Test statistic \(n\,R^2\sim\chi^2\) (or an F). \(H_0\) = homoskedasticity; reject ⇒ heteroskedasticity present. White adds squares and cross-products, so it catches more general forms than BP.</p>
+
+  <h3>Remedy 3 — WLS <span class="freq">P3 topic 10</span></h3>
+  <div class="box def"><span class="lbl">Definition</span><strong>Weighted Least Squares:</strong> if the variance form \(h(x)\) in \(\mathrm{Var}(u\mid X)=\sigma^2 h(X)\) is <em>known</em>, weight each observation by \(1/\sqrt{h(x)}\) (divide the whole equation through), then run OLS. This re-equalises the error variance.</div>
+  <p>If the form is correctly specified, WLS is <strong>BLUE</strong> and gives valid t/F under MLR.1–4 (no MLR.5 needed). The LPM is the textbook known-form case (\(h=\hat y(1-\hat y)\)).</p>
+
+  <h3>Remedy 4 — FGLS <span class="freq">★ specimen P3 — highest probability</span></h3>
+  <div class="box def"><span class="lbl">Definition</span><strong>Feasible Generalised Least Squares:</strong> WLS for when the variance form is <em>unknown</em> — you <em>estimate</em> it from the data first, then weight. "Feasible" = the weights are estimated rather than known.</div>
+  <div class="box exam"><span class="lbl">Full four-part answer (this was the specimen's P3 verbatim)</span>
+  <strong>1 · When?</strong> Heteroskedasticity is present but its form is unknown, so WLS weights aren't directly available.<br>
+  <strong>2 · Steps:</strong> (a) run OLS, get residuals \(\hat u\); (b) model the variance — regress \(\log(\hat u^2)\) on the regressors (or their functions), get fitted \(\hat g\); (c) form weights \(\hat h=\exp(\hat g)\); (d) run WLS with weights \(1/\hat h\).<br>
+  <strong>3 · Vs OLS under MLR.1–4:</strong> both unbiased &amp; consistent; FGLS is <em>not</em> unbiased in finite samples (weights are estimated) but is consistent and <em>asymptotically more efficient</em>.<br>
+  <strong>4 · Does n matter?</strong> Yes — FGLS's good properties are <em>asymptotic</em>, so it relies on large n; in small samples it can underperform OLS.</div>
+</section>
+
+<section id="s9">
+  <h2 class="sec">9 · Functional form &amp; data issues</h2>
+  <div class="box def"><span class="lbl">Definition</span><strong>Functional-form misspecification:</strong> you chose the right variables but the wrong <em>shape</em> (e.g. omitted a needed \(x^2\) or a log). The missing term lands in the error and correlates with x ⇒ <strong>MLR.4 violated ⇒ OLS biased &amp; inconsistent.</strong></div>
+
+  <h3>RESET test <span class="freq">P3 topic 12 · used in P2 Part 9</span></h3>
+  <div class="formula">\[ \textbf{Ramsey RESET: } y=\beta_0+\beta_1x_1+\dots+\beta_kx_k+\delta_1\hat y^2+\delta_2\hat y^3+\varepsilon. \]</div>
+  <p>Add powers of the fitted values and jointly test \(\delta_1=\delta_2=0\) (F test). Significant ⇒ misspecification; large p-value (e.g. the specimen's 0.352) ⇒ no evidence of it. A <em>general</em> test — doesn't name the better alternative.</p>
+
+  <h3>Davidson–MacKinnon test <span class="map">P3 topic 12</span></h3>
+  <div class="formula">\[ y=\beta_0+\beta_1x_1+\dots+\beta_kx_k+\delta_1\hat{\hat y}+\varepsilon. \]</div>
+  <p>For choosing between two <strong>non-nested</strong> models (e.g. level vs log): add the <em>rival</em> model's fitted values \(\hat{\hat y}\) as a regressor and t-test them. Significant ⇒ the current model is rejected in favour of the rival. Run it both directions.</p>
+
+  <h3>Measurement error &amp; proxies <span class="freq">P3 topic 13</span></h3>
+  <div class="box def"><span class="lbl">Definitions</span><strong>Proxy variable:</strong> a stand-in for an unobserved regressor (e.g. IQ for ability) to reduce OVB; a lagged dependent variable can serve as one. <strong>CEV (classical errors-in-variables):</strong> the measurement error is uncorrelated with the true value, \(\mathrm{Cov}(x^*,e)=0\).</div>
+  <ul>
+    <li><strong>Measurement error in y</strong> (classical): OLS stays unbiased &amp; consistent — just larger standard errors.</li>
+    <li><strong>Measurement error in x</strong> (CEV): causes <strong>attenuation bias</strong> — \(\hat\beta\) is biased <em>toward zero</em>, and OLS is inconsistent. The bigger the measurement noise, the stronger the pull toward zero.</li>
+  </ul>
+  <p><strong>Also under data issues (MLR.2):</strong> missing data, nonrandom samples, and outliers can all distort estimates; outliers especially can swing OLS because it squares residuals.</p>
+</section>
+
+<section id="p3list">
+  <h2 class="sec">Problem 3 — the full 13-topic list (theory description)</h2>
+  <p>Any one can appear. The <span class="freq">high-yield</span> tag marks the heteroskedasticity family that the specimen drew from. Each links to its full treatment above.</p>
+  <table>
+    <tr><th>#</th><th>Topic</th><th>Source</th><th>One-line core</th></tr>
+    <tr><td>1</td><td>Multicollinearity &amp; VIF</td><td>S#4</td><td>\(\text{VIF}_j=\frac{1}{1-R_j^2}\); &gt;10 a flag; inflates variance, not bias (§2)</td></tr>
+    <tr><td>2</td><td>Gauss–Markov, CLM, OLS BUE</td><td>L#5</td><td>1–5 → BLUE; +6 → BUE (§2)</td></tr>
+    <tr><td>3</td><td>LM test</td><td>L#6</td><td>\(n R^2_{\tilde u}\sim\chi^2_q\) from restricted-residual aux regression (§3)</td></tr>
+    <tr><td>4</td><td>\(R^2\), \(\bar R^2\)</td><td>L#3,7</td><td>fit; \(\bar R^2\) penalises params (§4)</td></tr>
+    <tr><td>5</td><td>Variable selection</td><td>L#7</td><td>theory / OVB / \(\bar R^2\) / tests; bias–variance (§5)</td></tr>
+    <tr><td>6</td><td>Chow test</td><td>L#9</td><td>F test of coefficient equality across groups (§7)</td></tr>
+    <tr><td>7</td><td>LPM</td><td>L#9</td><td>binary y; coeffs = pp; 4 shortcomings (§7)</td></tr>
+    <tr><td>8 <span class="freq">★</span></td><td>Heterosk. consequences + White SE</td><td>L#10</td><td>unbiased but not BLUE; SEs wrong → White robust (§8)</td></tr>
+    <tr><td>9 <span class="freq">★</span></td><td>White &amp; Breusch–Pagan tests</td><td>L#10</td><td>regress \(\hat u^2\) on regressors; \(nR^2\sim\chi^2\) (§8)</td></tr>
+    <tr><td>10 <span class="freq">★</span></td><td>WLS</td><td>L#10</td><td>known variance form; weight \(1/\sqrt{h}\); BLUE (§8)</td></tr>
+    <tr><td>11 <span class="freq">★</span></td><td>FGLS</td><td>L#10</td><td>unknown form — estimate weights then WLS (§8)</td></tr>
+    <tr><td>12</td><td>RESET, Davidson–MacKinnon</td><td>L#11</td><td>functional-form / non-nested model tests (§9)</td></tr>
+    <tr><td>13</td><td>Measurement error, CEV, attenuation</td><td>L#11</td><td>error in x biases \(\hat\beta\) toward 0 (§9)</td></tr>
+  </table>
+</section>
+
+<section id="p4list">
+  <h2 class="sec">Problem 4 — the full 11-derivation list</h2>
+  <p>The specimen used items 2/3/8 (linear estimator, sums of squares, \(\sum y=\sum\hat y\)) — your <span class="freq">high-yield</span> trio. Prepare those cold; skim the rest.</p>
+
+  <h4>★ 1 · Deriving OLS — Method of Moments &amp; Least Squares</h4>
+  <p><strong>LS:</strong> minimise \(\text{SSR}=\sum(y_i-\hat\beta_0-\hat\beta_1x_i)^2\); the two first-order conditions give \(\sum\hat u_i=0\) and \(\sum x_i\hat u_i=0\). <strong>MM:</strong> impose the sample versions of \(E(u)=0\) and \(\mathrm{Cov}(x,u)=0\) — the <em>same two normal equations</em>. Both yield identical \(\hat\beta\).</p>
+
+  <h4>★ 2 · Algebraic properties of OLS</h4>
+  <p>From the two normal equations: \(\sum\hat u_i=0\); \(\sum x_i\hat u_i=0\); \(\sum\hat y_i\hat u_i=0\) (since \(\hat y\) is a linear combo of x's); \(\bar y=\overline{\hat y}\); and \((\bar x,\bar y)\) lies on the line. All follow because OLS is <em>defined</em> to force the first two.</p>
+
+  <h4>★ 3 · Sums of squares: SST = SSE + SSR</h4>
+  <p>Write \(y_i-\bar y=(\hat y_i-\bar y)+\hat u_i\), square and sum: \(\text{SST}=\text{SSE}+\text{SSR}+2\sum\hat u_i(\hat y_i-\bar y)\). The cross term vanishes because \(\sum\hat u_i=0\) and \(\sum\hat u_i\hat y_i=0\). ∴ \(\text{SST}=\text{SSE}+\text{SSR}\).</p>
+
+  <h4>4 · OLS in matrix form</h4>
+  <p>Minimise \((y-X\beta)^{\mathsf T}(y-X\beta)\); FOC \(X^{\mathsf T}(y-X\hat\beta)=0\) ⇒ normal equations \(X^{\mathsf T}X\hat\beta=X^{\mathsf T}y\) ⇒ \(\hat\beta=(X^{\mathsf T}X)^{-1}X^{\mathsf T}y\) (invertible by MLR.3, full rank).</p>
+
+  <h4>★ 5 · Unbiasedness of OLS</h4>
+  <p>Sub \(y_i=\beta_0+\beta_1x_i+u_i\) into \(\hat\beta_1=\sum w_i y_i\) (weights \(w_i=\frac{x_i-\bar x}{\sum(x_j-\bar x)^2}\)): \(\hat\beta_1=\beta_1+\sum w_i u_i\). Take expectations; \(E(u_i\mid x)=0\) (MLR.4) ⇒ \(E(\hat\beta_1)=\beta_1\). Matrix version: \(\hat\beta=\beta+(X^{\mathsf T}X)^{-1}X^{\mathsf T}u\), \(E(\hat\beta\mid X)=\beta\).</p>
+
+  <h4>6 · Variance of OLS (incl. misspecified models)</h4>
+  <p>\(\mathrm{Var}(\hat\beta_1)=\frac{\sigma^2}{\text{SST}_x}\) (SLR); \(\frac{\sigma^2}{\text{SST}_j(1-R_j^2)}\) (MLR). <strong>In a misspecified (under-specified) model</strong>, dropping a relevant regressor lowers the variance of the remaining estimator but introduces bias — the bias–variance trade-off in formula form.</p>
+
+  <h4>7 · Bias in misspecified models / OVB (summation notation)</h4>
+  <p>Omit a relevant \(x_2\) from \(y=\beta_0+\beta_1x_1+\beta_2x_2+u\). The short regression's slope has \(E(\tilde\beta_1)=\beta_1+\beta_2\,\tilde\delta_1\), where \(\tilde\delta_1\) is the slope of \(x_2\) regressed on \(x_1\). Bias \(=\beta_2\tilde\delta_1\); its sign is \(\operatorname{sign}(\beta_2)\times\operatorname{sign}(\mathrm{corr}(x_1,x_2))\).</p>
+
+  <h4>★ 8 · Linear estimator</h4>
+  <p>\(\hat\beta_1=\sum w_i y_i\) with non-random \(w_i=\frac{x_i-\bar x}{\sum(x_j-\bar x)^2}\) ⇒ linear in y. Properties \(\sum w_i=0\), \(\sum w_i x_i=1\) (used in the unbiasedness and BLUE proofs).</p>
+
+  <h4>9 · F test: SSR vs R² form</h4>
+  <p>Start from \(F=\frac{(\text{SSR}_R-\text{SSR}_U)/q}{\text{SSR}_U/(n-k-1)}\); substitute \(\text{SSR}=\text{SST}(1-R^2)\) and cancel SST ⇒ \(F=\frac{(R_U^2-R_R^2)/q}{(1-R_U^2)/(n-k-1)}\). The two are identical.</p>
+
+  <h4>10 · Effects of scaling &amp; logs</h4>
+  <p>Multiply x by \(c\) ⇒ \(\hat\beta\) divides by \(c\) (t-stat, fit unchanged). Multiply y by \(c\) ⇒ all coefficients multiply by \(c\). Logs change the interpretation per the four-model table (§1).</p>
+
+  <h4>11 · Predictions: mean vs specific-unit</h4>
+  <p>Mean prediction CI uses only \(\mathrm{Var}(\hat y_0)\); the prediction interval for a single unit adds \(\sigma^2\): \(\mathrm{Var}(\hat e_0)=\mathrm{Var}(\hat y_0)+\sigma^2\), hence wider (§6).</p>
+</section>
+
+<section id="cheat">
+  <h2 class="sec">Formula cheat-sheet (internalise — none of this is allowed in)</h2>
+  <div class="formula">\[ t=\frac{\hat\beta-a}{se(\hat\beta)},\ df=n-k-1\qquad \text{CI: }\hat\beta\pm c\cdot se(\hat\beta) \]</div>
+  <div class="formula">\[ F_{R^2}=\frac{R^2/k}{(1-R^2)/(n-k-1)}\qquad F_{\text{SSR}}=\frac{(\text{SSR}_R-\text{SSR}_U)/q}{\text{SSR}_U/(n-k-1)} \]</div>
+  <div class="formula">\[ \mathrm{Var}(\hat\beta_j)=\frac{\sigma^2}{\text{SST}_j(1-R_j^2)}\qquad \text{VIF}_j=\frac{1}{1-R_j^2}\qquad \hat\sigma^2=\frac{\text{SSR}}{n-k-1} \]</div>
+  <div class="formula">\[ \text{LPM var}=\hat y(1-\hat y),\ \text{WLS weight}=\tfrac{1}{\sqrt{\hat y(1-\hat y)}}\qquad \text{quad slope }=\beta_1+2\beta_2x,\ \text{turning pt}=-\tfrac{\beta_1}{2\beta_2} \]</div>
+  <div class="formula">\[ \text{BP/White: } nR^2\sim\chi^2_q\qquad \text{LM: } nR^2_{\tilde u}\sim\chi^2_q\qquad \text{SST}=\text{SSE}+\text{SSR} \]</div>
+</section>
+
+<section id="tables">
+  <h2 class="sec">Critical-value tables (from the exam appendix)</h2>
+  <p>The exam supplies these — but knowing the common rows speeds you up. For large df use the ∞ row.</p>
+  <h4>Student t (right-tail area)</h4>
+  <table>
+    <tr><th>df</th><th>0.10</th><th>0.05</th><th>0.025</th><th>0.01</th><th>0.005</th></tr>
+    <tr><td>60</td><td>1.296</td><td>1.671</td><td>2.000</td><td>2.390</td><td>2.660</td></tr>
+    <tr><td>120</td><td>1.289</td><td>1.658</td><td>1.980</td><td>2.358</td><td>2.617</td></tr>
+    <tr><td>∞</td><td>1.282</td><td>1.645</td><td>1.960</td><td>2.326</td><td>2.576</td></tr>
+  </table>
+  <p style="font-size:14.5px;color:var(--muted)">Two-sided 5% → 0.025 column (1.96). One-sided 5% → 0.05 column (1.645). One-sided 10% → 0.10 column (1.282).</p>
+  <h4>F distribution (5% / 1%, selected; numerator df across)</h4>
+  <table>
+    <tr><th>denom df</th><th>α</th><th>1</th><th>2</th><th>3</th><th>4</th></tr>
+    <tr><td>120</td><td>0.05</td><td>3.92</td><td>3.07</td><td>2.68</td><td>2.45</td></tr>
+    <tr><td>120</td><td>0.01</td><td>6.85</td><td>4.79</td><td>3.95</td><td>3.48</td></tr>
+    <tr><td>∞</td><td>0.05</td><td>3.84</td><td>3.00</td><td>2.60</td><td>2.37</td></tr>
+    <tr><td>∞</td><td>0.01</td><td>6.63</td><td>4.61</td><td>3.78</td><td>3.32</td></tr>
+  </table>
+  <h4>χ² distribution (right-tail)</h4>
+  <table>
+    <tr><th>df</th><th>0.10</th><th>0.05</th><th>0.025</th><th>0.01</th></tr>
+    <tr><td>1</td><td>2.71</td><td>3.84</td><td>5.32</td><td>6.63</td></tr>
+    <tr><td>2</td><td>4.61</td><td>5.99</td><td>7.38</td><td>9.21</td></tr>
+    <tr><td>3</td><td>6.25</td><td>7.81</td><td>9.35</td><td>11.34</td></tr>
+    <tr><td>4</td><td>7.78</td><td>9.49</td><td>11.14</td><td>13.28</td></tr>
+  </table>
+</section>
+
+<section id="room">
+  <h2 class="sec">Exam-room protocol</h2>
+  <div class="box exam"><span class="lbl">Every hypothesis test — five steps (the marks live here)</span>
+  <ol style="margin-top:6px">
+    <li>State \(H_0\) and \(H_1\) <em>fully</em> — include the null value and the right inequality.</li>
+    <li>Write the test-statistic formula, then plug numbers.</li>
+    <li>State the distribution + df (\(t_{n-k-1}\), \(F_{q,n-k-1}\), \(\chi^2_q\)).</li>
+    <li>State the critical value from the table — which tail/column, and the value.</li>
+    <li>Decision + plain-language conclusion; add an economic-significance remark where relevant.</li>
+  </ol>
+  The specimen instructions demand exactly this — state the null and alternative completely, the theoretical formula, its distribution, the critical value formally, and a clear conclusion.</div>
+  <ul>
+    <li><strong>Compute df first</strong> (\(n-k-1\)) — it selects your table row.</li>
+    <li><strong>Match tail to \(H_1\):</strong> two-sided → \(\alpha/2\) column; one-sided → \(\alpha\) column. The #1 avoidable error.</li>
+    <li><strong>Subtract the null value</strong> when it isn't 0 (the "white &gt; 5pp" case).</li>
+    <li><strong>2-sigma rule:</strong> \(|t|>2\) ≈ significant at 5% for df &gt; 120 — sanity check, but cite 1.96.</li>
+    <li><strong>LPM coefficients are percentage points</strong>, not percent.</li>
+    <li><strong>Show all arithmetic</strong> — no calculator means they expect every step; partial credit lives there.</li>
+    <li>Never write "accept \(H_0\)" — only "fail to reject."</li>
+    <li>Answer <em>only</em> what's asked, in English, legibly, on the question sheet.</li>
+  </ul>
+</section>
+
+<footer>
+  Built from Lecture 12 (Revision of Key Concepts, J. Kukačka, SS2026) and the JEB109 2025 final specimen + topics, with the worked Problem 2 solved on the specimen's own employment model and appendix critical values. Worked t/F examples also draw on Seminars 5 and 11. Reference material — always confirm critical values against the appendix provided in your exam. Good luck, Šimon.
+</footer>
+
+</main>
+</div>
+</body>
+</html>
